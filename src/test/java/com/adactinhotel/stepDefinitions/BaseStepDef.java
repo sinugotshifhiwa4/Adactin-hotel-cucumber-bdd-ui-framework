@@ -1,5 +1,6 @@
 package com.adactinhotel.stepDefinitions;
 
+import com.adactinhotel.pages.BookHotelPage;
 import com.adactinhotel.pages.LoginPage;
 import com.adactinhotel.pages.SearchHotelPage;
 import com.adactinhotel.pages.SelectHotel;
@@ -27,6 +28,7 @@ public class BaseStepDef {
     protected LoginPage loginPage;
     protected SearchHotelPage searchHotelPage;
     protected SelectHotel selectHotel;
+    protected BookHotelPage bookHotelPage;
 
     @Before
     public void setup() {
@@ -40,6 +42,7 @@ public class BaseStepDef {
             loginPage = new LoginPage(driver);
             searchHotelPage = new SearchHotelPage(driver);
             selectHotel = new SelectHotel(driver);
+            bookHotelPage = new BookHotelPage(driver);
 
 
         } catch (Exception e) {

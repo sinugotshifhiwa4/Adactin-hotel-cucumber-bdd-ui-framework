@@ -68,10 +68,29 @@ public class BookHotelStepDef {
 
     @And("the user fills out all billing information and clicks the book now button")
     public void theUserFillsOutAllBillingInformationAndClicksTheBookNowButton() {
-        System.out.println("sdfghjmhngbfvdcsxcdvfbg");
+        logger.info("filling all billing information");
+        baseStep.bookHotelPage.fillBillingInformation(
+                "Nathan",
+                "Ake",
+                "New St, Marshalltown, Johannesburg, 2001",
+                "5425233430109903",
+                "Master Card",
+                "April",
+                "2026",
+                "123"
+        );
+        logger.info("User fills out all billing information");
     }
 
     @Then("the user has successfully booked the hotel and can see the order number")
     public void theUserHasSuccessfullyBookedTheHotelAndCanSeeTheOrderNumber() {
+        logger.info("User has successfully booked the hotel and can see the hotel booking order");
+
+        baseStep.bookHotelPage.checkIfLastNameTextBoxIsEmpty();
+
+        boolean isVisible = baseStep.bookHotelPage.verifyOrderNumber();
+        assertTrue(isVisible);
+        baseStep.bookHotelPage.getOrderNumberAndSaveToFile();
+        logger.info("booking was successful and order number was generated and saved to file");
     }
 }

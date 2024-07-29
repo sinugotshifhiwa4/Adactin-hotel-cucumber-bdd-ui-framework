@@ -1,17 +1,26 @@
 package com.adactinhotel.reusableComponents;
 
 import com.adactinhotel.utils.BrowserDriverFactory;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.Duration;
 
 public class WebActions {
+
+    String filePath = PropertiesConfig.getPropertyKey("orderNumberFilePath");
 
     public Wait<WebDriver> initFluentWait(){
 
@@ -123,5 +132,102 @@ public class WebActions {
         }
         System.out.println("Element: " + fieldName + " is visible");
         return false;
+    }
+
+    public void acceptAlert() {
+        try {
+            Wait<WebDriver> wait = initFluentWait();
+            wait.until(ExpectedConditions.alertIsPresent());
+            Alert alert = BrowserDriverFactory.getInstance().getDriver().switchTo().alert();
+            alert.accept();
+        } catch (Exception e) {
+            CustomException.handleException("AcceptAlert", e);
+        }
+    }
+
+    public void dismissAlert() {
+        try {
+            Wait<WebDriver> wait = initFluentWait();
+            wait.until(ExpectedConditions.alertIsPresent());
+            Alert alert = BrowserDriverFactory.getInstance().getDriver().switchTo().alert();
+            alert.dismiss();
+        } catch (Exception e) {
+            CustomException.handleException("DismissAlert", e);
+        }
+    }
+
+    public void sendTextToAlert(String text) {
+        try {
+            Wait<WebDriver> wait = initFluentWait();
+            wait.until(ExpectedConditions.alertIsPresent());
+            Alert alert = BrowserDriverFactory.getInstance().getDriver().switchTo().alert();
+            alert.sendKeys(text);
+        } catch (Exception e) {
+            CustomException.handleException("SendTextToAlert", e);
+        }
+    }
+
+    public String getTextFromElement(WebElement element, String fieldName) {
+        try {
+            Wait<WebDriver> wait = initFluentWait();
+            wait.until(ExpectedConditions.visibilityOf(element));
+
+            // Direct text retrieval
+            String text = element.getText();
+            System.out.println("Text from element " + fieldName + " using getText(): " + text);
+
+            // Use JavaScript Executor if text is empty
+            if (text.isEmpty()) {
+                JavascriptExecutor jsExecutor = (JavascriptExecutor) BrowserDriverFactory.getInstance().getDriver();
+
+                // Try getting innerText first
+                text = (String) jsExecutor.executeScript("return arguments[0].innerText;", element);
+                System.out.println("Text from element " + fieldName + " using JavaScript innerText: " + text);
+
+                // If innerText is still empty, try getting value attribute
+                if (text.isEmpty()) {
+                    text = (String) jsExecutor.executeScript("return arguments[0].value;", element);
+                    System.out.println("Text from element " + fieldName + " using JavaScript value attribute: " + text);
+                }
+            }
+
+            // Throw exception if text is still empty
+            if (text.isEmpty()) {
+                throw new RuntimeException("Text is empty for element " + fieldName);
+            }
+
+            return text;
+        } catch (Exception e) {
+            CustomException.handleException("GetTextFromElement " + fieldName, e);
+            throw new RuntimeException("Error retrieving text from element " + fieldName, e);
+        }
+    }
+
+
+    public void writeTextToFile(String text) {
+        try {
+            assert filePath != null;
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+                writer.write(text);
+                System.out.println("Text written to file: " + filePath);
+            }
+        } catch (IOException e) {
+            CustomException.handleException("WriteTextToFile " + filePath, e);
+        }
+    }
+
+    public String readTextFromFile() {
+
+        StringBuilder content = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                content.append(line).append(System.lineSeparator());
+            }
+            System.out.println("Text read from file: " + filePath);
+        } catch (IOException e) {
+            CustomException.handleException("ReadTextFromFile " + filePath, e);
+        }
+        return content.toString();
     }
 }
