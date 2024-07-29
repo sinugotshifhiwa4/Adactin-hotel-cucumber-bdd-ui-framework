@@ -2,6 +2,7 @@ package com.adactinhotel.stepDefinitions;
 
 import com.adactinhotel.pages.LoginPage;
 import com.adactinhotel.pages.SearchHotelPage;
+import com.adactinhotel.pages.SelectHotel;
 import com.adactinhotel.reusableComponents.CustomException;
 import com.adactinhotel.reusableComponents.PropertiesConfig;
 import com.adactinhotel.utils.BrowserDriverFactory;
@@ -25,6 +26,7 @@ public class BaseStepDef {
     private WebDriverWait wait;
     protected LoginPage loginPage;
     protected SearchHotelPage searchHotelPage;
+    protected SelectHotel selectHotel;
 
     @Before
     public void setup() {
@@ -37,6 +39,8 @@ public class BaseStepDef {
             wait = new WebDriverWait(driver, Duration.ofSeconds(30));
             loginPage = new LoginPage(driver);
             searchHotelPage = new SearchHotelPage(driver);
+            selectHotel = new SelectHotel(driver);
+
 
         } catch (Exception e) {
             CustomException.handleException("setupMethod", e);

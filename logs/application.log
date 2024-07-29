@@ -187,3 +187,38 @@ Session ID: d96250b17706240fdf237b03deb3ba42
 2024-07-29 09:27:51 [main] INFO  LoggerConfig - User fills out all fields on the search hotel page
 2024-07-29 09:27:54 [main] INFO  LoggerConfig - User fills out all fields on the search hotel page
 2024-07-29 09:27:55 [main] INFO  LoggerConfig - User is navigated to the select hotel page
+2024-07-29 17:56:36 [main] INFO  LoggerConfig - Login page opened
+2024-07-29 17:56:38 [main] INFO  LoggerConfig - Entering valid username into the username field
+2024-07-29 17:56:38 [main] INFO  LoggerConfig - username entered successfully
+2024-07-29 17:56:39 [main] INFO  LoggerConfig - Entering valid password into the password field
+2024-07-29 17:56:39 [main] INFO  LoggerConfig - password entered successfully
+2024-07-29 17:56:41 [main] INFO  LoggerConfig - Clicking login button
+2024-07-29 17:56:43 [main] INFO  LoggerConfig - login button clicked
+2024-07-29 17:56:45 [main] INFO  LoggerConfig - validating login was successful
+2024-07-29 17:56:45 [main] INFO  LoggerConfig - User is navigated to the search hotel page
+2024-07-29 17:56:46 [main] INFO  LoggerConfig - User is navigated to the search hotel page
+2024-07-29 17:56:47 [main] INFO  LoggerConfig - User fills out all fields on the search hotel page
+2024-07-29 17:56:50 [main] INFO  LoggerConfig - User fills out all fields on the search hotel page
+2024-07-29 17:56:51 [main] INFO  LoggerConfig - User is navigated to the select hotel page
+2024-07-29 17:56:52 [main] INFO  LoggerConfig - user is selecting hotel and clicking continue button
+2024-07-29 17:56:55 [main] INFO  LoggerConfig - user is selected hotel and clicked continue button
+2024-07-29 17:56:57 [main] INFO  LoggerConfig - User is navigated to the book hotel page
+2024-07-29 17:56:57 [main] INFO  LoggerConfig - User is navigated to the book hotel page
+2024-07-29 18:02:51 [main] INFO  LoggerConfig - Login page opened
+2024-07-29 18:02:52 [main] INFO  LoggerConfig - Entering valid username into the username field
+2024-07-29 18:02:52 [main] INFO  LoggerConfig - username entered successfully
+2024-07-29 18:02:54 [main] INFO  LoggerConfig - Entering valid password into the password field
+2024-07-29 18:02:54 [main] INFO  LoggerConfig - password entered successfully
+2024-07-29 18:02:55 [main] INFO  LoggerConfig - Clicking login button
+2024-07-29 18:02:56 [main] INFO  LoggerConfig - login button clicked
+2024-07-29 18:02:58 [main] INFO  LoggerConfig - validating login was successful
+2024-07-29 18:02:58 [main] INFO  LoggerConfig - User is navigated to the search hotel page
+2024-07-29 18:02:59 [main] INFO  LoggerConfig - User is navigated to the search hotel page
+2024-07-29 18:03:00 [main] INFO  LoggerConfig - User fills out all fields on the search hotel page
+2024-07-29 18:03:08 [main] INFO  LoggerConfig - User fills out all fields on the search hotel page
+2024-07-29 18:03:09 [main] INFO  LoggerConfig - User is navigated to the select hotel page
+2024-07-29 18:03:09 [main] INFO  LoggerConfig - User is navigated to the select hotel page
+2024-07-29 18:03:10 [main] INFO  LoggerConfig - user is selecting hotel and clicking continue button
+2024-07-29 18:03:12 [main] INFO  LoggerConfig - user is selected hotel and clicked continue button
+2024-07-29 18:03:13 [main] INFO  LoggerConfig - User is navigated to the book hotel page
+2024-07-29 18:03:13 [main] INFO  LoggerConfig - User is navigated to the book hotel page

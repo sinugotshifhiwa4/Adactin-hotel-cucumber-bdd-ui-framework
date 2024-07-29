@@ -45,14 +45,25 @@ public class BookHotelStepDef {
         logger.info("User is navigated to the select hotel page");
         boolean isContinueButtonVisible = baseStep.searchHotelPage.verifyContinueButtonIsVisible();
         assertTrue(isContinueButtonVisible);
+        System.out.println("Continue button is visible" +  isContinueButtonVisible);
+        logger.info("User is navigated to the select hotel page");
     }
 
     @And("the user selects the hotel they want and clicks the continue button")
     public void theUserSelectsTheHotelTheyWantAndClicksTheContinueButton() {
+        logger.info("user is selecting hotel and clicking continue button");
+        baseStep.selectHotel.clickToSelectHotel();
+        baseStep.selectHotel.clickContinueButton();
+        logger.info("user is selected hotel and clicked continue button");
     }
 
     @Then("the user is navigated to the book hotel page")
     public void theUserIsNavigatedToTheBookHotelPage() {
+        logger.info("User is navigated to the book hotel page");
+        boolean isVisible = baseStep.selectHotel.verifyBookNowButton();
+        assertTrue(isVisible);
+        System.out.println("Book now button is visible" +  isVisible);
+        logger.info("User is navigated to the book hotel page");
     }
 
     @And("the user fills out all billing information and clicks the book now button")
