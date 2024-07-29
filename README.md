@@ -23,7 +23,7 @@ This project automates the login functionality of the Adactin Hotel application 
 - #ThreadSafety
 - #JUnit5
 - #Log4j2
-- #ExtentReports
+- #GenerateReport in html
 
 ## Prerequisites
 
