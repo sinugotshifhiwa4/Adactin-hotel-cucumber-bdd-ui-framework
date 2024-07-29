@@ -62,7 +62,7 @@ To run the tests, use the following Maven command:
 ```sh
 mvn clean test -P local
 
-# Project Structure
+Project Structure
 
 Adactin-hotel-cucumber-bdd-ui-framework
 ├── .idea
@@ -137,24 +137,24 @@ Copy code
 </Configuration>
 
 
-# Test Reports
+Test Reports
 Test reports are generated using Cucumber and ExtentReports.
 
 JSON and HTML Reports
 JSON Report: The test results are first generated in JSON format.
 HTML Report: The JSON report is then converted into an HTML report.
 
-# Report Location
+Report Location
 The reports can be found in the target/cucumber-reports directory.
 The JSON report is created during the test execution.
 The HTML report is generated from the JSON report using the build setup.
 
-# Build Setup
+Build Setup
 To generate the HTML report from the JSON report, use the following Maven command:
 
 mvn verify
 This command will generate the HTML report in the target/cucumber-reports directory.
 
 
-# Authors
+Authors
 Tshifhiwa - Automation Tester - sinugotshifhiwa4
