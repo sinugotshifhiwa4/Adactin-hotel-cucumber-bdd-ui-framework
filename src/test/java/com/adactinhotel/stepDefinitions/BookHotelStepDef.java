@@ -68,6 +68,7 @@ public class BookHotelStepDef {
 
     @And("the user fills out all billing information and clicks the book now button")
     public void theUserFillsOutAllBillingInformationAndClicksTheBookNowButton() {
+        System.out.println("sdfghjmhngbfvdcsxcdvfbg");
     }
 
     @Then("the user has successfully booked the hotel and can see the order number")
